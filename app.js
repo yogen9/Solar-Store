@@ -15,9 +15,12 @@ var express = require("express"),
 
 //=========================================================================
 //Database SetUp
-mongo.connect("mongodb://localhost/solar", {
-    useMongoClient: true
-});
+        // mongo.connect("mongodb://localhost/solar", {
+        //     useMongoClient: true
+        // });
+    mongo.connect("mongodb://yogen:yogen123@ds229295.mlab.com:29295/solar-store", {
+        useMongoClient: true
+    });
 //Product Schema 
 var solarItems = new mongo.Schema({
     title: String,
