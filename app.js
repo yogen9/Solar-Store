@@ -18,7 +18,7 @@ var express = require("express"),
         // mongo.connect("mongodb://localhost/solar", {
         //     useMongoClient: true
         // });
-    mongo.connect("mongodb://yogen:yogen123@ds229295.mlab.com:29295/solar-store", {
+    mongo.connect(process.env.DB, {
         useMongoClient: true
     });
 //Product Schema 
@@ -73,8 +73,8 @@ passport.deserializeUser(user.deserializeUser());
 var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: 'yogen0095@gmail.com',
-        pass: 'yogen@popat96'
+        user: process.env.GU,
+        pass: process.env.GP
     }
 });
 
