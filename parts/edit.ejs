@@ -1,0 +1,56 @@
+<!-- this is model for login -->
+<div class="modal fade" id="editi" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title text-center"> Edit Item </h4>
+      </div>
+      <div class="modal-body ">
+
+          <form id="newP" action="/products/<%=solarProduct._id %>?_method=PUT" method="POST" encType="multipart/form-data">
+            <div class="row">
+              <div class="form-group col-md-6">
+                <input class="form-control" type="text" name="title" value="<%= solarProduct.title %>" autofocus>
+              </div>
+              <div class="form-group col-md-6">
+                <input class="form-control" type="text" name="company" value="<%=solarProduct.company %>" >
+              </div>
+            </div>
+            <div class="form-group">
+                <select class="form-control" name="category">
+                <option selected ><%=solarProduct.category %></option>
+                <option name="Panel">Panel</option>
+                <option name="">dummy</option>
+                <option name="">dummy</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <textarea form="newP" rows="5" cols="5" class="form-control" name="description" value="<%=solarProduct.description %>"></textarea> 
+            </div>
+            <div class="row">
+              <div class="form-group col-md-6">
+                <div class="input-group">
+                    <div class="input-group-addon">Ru.</div>
+                        <input class="form-control" type="number" name="prize" value="<%=solarProduct.prize %>">
+                    <div class="input-group-addon">.00</div>
+                </div>
+              </div>
+              <div class="form-group col-md-6">
+                <input class="form-control" type="text" name="warranty" value="<%=solarProduct.warranty %>" >
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="file" name="img"/><br>  
+            </div>
+            <input type="hidden" name="img" value="<%=solarProduct.img %>">
+            <div class="form-group"> 
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div> 
+          </form>
+  
+        </div>    
+      </div>
+    </div>
+  </div>
+</div>

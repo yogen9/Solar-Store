@@ -1,0 +1,27 @@
+<% include ../parts/header %>
+<% include ../parts/edit %>
+
+    <div class="detail row" id="top">
+        <div class="col-md-5">
+            <img class="img-thumbnail img-rounded" src="<%= solarProduct.img %>" alt="solar">
+        </div>
+        <div class="col-md-7">
+            <div class="container-fluid">
+                <h1><%= solarProduct.title %> 
+                <% if(currentUser){ %>
+                    <form id="delBt" action="/products/<%=solarProduct._id %>?_method=DELETE" method="POST">
+                        <input type="submit" name="Delete" class="btn btn-danger" value="Delete"> 
+                    </form>
+                    <span id="editBt"><button class="btn btn-success" data-toggle="modal" data-target="#editi" type="button">Edit</button></span>         
+                <% } %>
+            </h1><hr>                
+            </div>
+            <div class="container-fluid">
+                <p><b>Company : </b><%=solarProduct.company %></p>            
+                <p><b>Description : </b><%=solarProduct.description %></p>
+                <p><b>Prize : </b><%=solarProduct.prize %> </p>
+                <p><b>Warranty : </b><%=solarProduct.warranty %></p>
+            </div>
+        </div>
+    </div>
+<% include ../parts/footer %>

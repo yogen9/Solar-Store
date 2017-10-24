@@ -1,0 +1,27 @@
+<% include ../parts/header %>
+<% include ../parts/add %>
+<h2 id="top" class="text-center">Category 1
+    <% if(currentUser){ %> 
+    <span class="add">
+        <button data-toggle="modal" data-target="#addi" class="btn btn-primary" type="">Add New Item</button>
+    </span>
+    <% } %>
+</h2>
+    <div class="category">
+        <div class="row cards">
+            <% solarProduct.forEach(function(Product){ %>
+                <div class="col-sm-6 col-md-3">
+                    <div class="card">
+                        <img class=" img-thumbnail img-rounded" src="<%=Product.img %>" alt="Avatar">
+                        <div class="caption">
+                            <h4><b><%=Product.title %></b></h4>
+                            <p><b> Rs.<%= Product.prize %> </b> </p>
+                            <p><%=Product.description%>...<a href="/products/<%= Product._id %>">Read more...</a> </p>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+    </div>   
+
+    <% include ../parts/footer %>
