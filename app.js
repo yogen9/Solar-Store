@@ -16,7 +16,7 @@ var express = require("express"),
 //=========================================================================
 
 //Database SetUp
-mongo.connect("process.env.DB", {
+mongo.connect(process.env.DB, {
     useMongoClient: true
 });
 //Product Schema 
