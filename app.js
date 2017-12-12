@@ -178,7 +178,7 @@ app.post("/", function (req, res) { // for registration
         gender: req.body.gender,
         dob: req.body.dob,
         isAdmin: false,
-        img: "../images/"+ req.files.img,
+        img: "../images/"+ req.files.img.name,
     });
     user.register(newUser, req.body.password, function (err, user) {
         if (err) {
