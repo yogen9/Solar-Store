@@ -1,0 +1,66 @@
+<% include ../parts/header %>
+
+<div style="padding-top:5%;" class="container">
+    <div class="row justify-content-center">
+        <div>
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Welcome <%= currentUser.name %></h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-3 col-lg-3 " align="center">
+                            <img src="<%=currentUser.img %>" class=" img-responsive"> </div>
+                        <div class=" col-md-9 col-lg-9 ">
+                            <table  class="table table-user-information">
+                                <tbody>
+                                    <tr>
+                                        <th>Email</th>
+                                        <td><%= currentUser.username %></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Name</th>
+                                        <td><%= currentUser.name %> <%= currentUser.lname %></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Date of Birth</th>
+                                        <td><%= currentUser.dob %></td>
+                                    </tr>
+                                     <tr>
+                                         <th>Gender</th>
+                                         <td><%= currentUser.gender %></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Home Address</th>
+                                        <td><%= currentUser.address %></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Phone Number</th>
+                                        <td><%= currentUser.mobile %></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <a type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
+                    <span class="pull-right">
+                        <a href="edit.html" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+                        <a type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% if(currentUser){ %>
+    <% if(currentUser.isAdmin){ %>
+        <% include ../parts/adminOrder %>
+    <% }else{ %>
+        <% include ../parts/userTrans %>
+    <% } %>
+<% } %> 
+
+<% include ../parts/footer %>

@@ -1,0 +1,73 @@
+<div class="container">
+    <div class="row justify-content-center ">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">All Orders</h3>
+            </div>
+            <div class="panel-body">
+                <% AllTrans.forEach(function(trans){ %>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <tr style="background: #f5f5f5">
+                                <th class="text-center" colspan="2">Customer Detail</th>
+                                <th class="text-center" colspan="2">Product Detail</th>
+                            </tr>
+                            <tr>
+                                <th>Name :</th>
+                                <td><%=trans.userId.name%><%trans.userId.lname%></td>
+                                <th>Product Link :</th>
+                                <td><a href="/products/<%=trans.productId %>">Click Here</a></td>
+                            </tr> 
+                            <tr>
+                                <th>Email :</th>
+                                <td><%=trans.userId.username%></td>
+                                <th>Quantity :</th>
+                                <td><%=trans.quantity%></td>
+                            </tr>
+                            <tr>
+                                <th>Mobile No : </th>
+                                <td><%=trans.userId.mobile%></td>
+                                <th>Prize :</th>
+                                <td><%=trans.prize%></td>
+                            </tr>
+                            <tr>
+                                <th>Address : </th>
+                                <td><%=trans.userId.address%></td>
+                                <th>Date Of Order : </th>
+                                <td><%=trans.created %></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"></td>
+                                <td>
+                                <% if(!(trans.status == "Cancel")){ %>
+                                    <form action="/updateStatus?_method=PUT" method="POST">
+                                        <select name="newStatus" class="text-center form-control">
+                                            <option value="<%=trans.status %>" selected><%=trans.status %></option>
+                                            <option value="Panding">Panding</option>
+                                            <option value="Processing">Processing</option>
+                                            <option value="Out For Delivery">Out For Delivery</option>
+                                            <option value="Done">Done</option>
+                                        </select>
+                                <% }else{ %>
+                                    <button type="" class="btn"><%=trans.status%></button> 
+                                <% } %>
+                                </td>
+                                <% if(!(trans.status == "Cancel")){ %>
+                                    <input type="hidden" name="transId" value="<%=trans._id %>">
+                                    <td><input class="btn btn-success" type="submit" name="submit" value="Update Status"></td>
+                                <% } %>
+                                </form>
+                                
+                                <td></td>
+                            </tr>        
+                        </table>
+                    </div><br>
+                <% }) %>
+            </div>
+            <div class="panel-footer">
+
+            </div>
+        </div>
+    </div>
+</div>
+

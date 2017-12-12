@@ -35,7 +35,7 @@
             <li><a href="#" data-toggle="modal" data-target="#signup"><i class="fa fa-user-plus" aria-hidden="true"></i> SignUp </a></li>
             <li><a href="#" data-toggle="modal" data-target="#login"><i class="fa fa-sign-in" aria-hidden="true"></i> Login </a></li>
             <% } else {%>
-            <li><a href="#">Hello <%= currentUser.username %> !</a></li>
+            <li><a href="/userProfile"><b>Hello <%= currentUser.name %>!!!</b></a></li>
             <li><a href="/logout"> Log Out </a></li>    
           <% } %>      
         </ul>
@@ -43,14 +43,5 @@
     </nav>
     </div>
 
-  <% include login%>
-  <% include signup%>
-
-  <div class="container">
-       <% if(error.lenght > 0){ %> 
-        <div class="alert alert-success" role="alert"> <%= error %> </div>  
-       <% } %> 
-       <% if(success.lenght > 0){ %> 
-        <div class="alert alert-danger" role="alert"> <%= success %> </div>
-       <% } %> 
-  </div>
+  <% include login %>
+  <% include signup %>

@@ -1,0 +1,38 @@
+<div id="buy" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title text-center">Buy Now</h4>
+            </div>
+            <div class="modal-body">
+                <p><b> Oreder will Delivered to  :</b> <%=currentUser.address %> </p>
+                <form action="/products/<%=solarProduct._id %>/buy" method="POST">
+                    <table class="table">
+                        <tr>
+                           <th>Prize</th>
+                           <td><%=solarProduct.prize %></td>
+                        </tr>
+                        <tr>
+                           <th> Select Quantity</th>
+                           <td><input class="form-control quantity" onchange="prizeCal('<%=solarProduct.prize %>',this)" type="number" name="quantity" value="1" min="1"></td>
+                        </tr>
+                        <tr>
+                            <th>Total Prize</th>
+                           <td><p id="prize"><%=solarProduct.prize %></p></td><!-- prize will be added server side -->
+                        </tr>
+                    </table>
+                    <input type="hidden" name="prize" value="<%=solarProduct.prize %>">
+                    <input type="hidden" name="status" value="Panding">  
+                    <input type="hidden" name="productId" value="<%=solarProduct._id %>">
+                    <input type="hidden" name="userId" value="<%=currentUser._id %>">
+                    <div class="form-group">
+                        <input class="form-control btn btn-success" type="submit" name="submit" value="Comfirm Order">
+                    </div>
+                </form>   
+            </div>
+        </div>
+
+    </div>
+</div>

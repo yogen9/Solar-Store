@@ -17,16 +17,24 @@
                 <input class="form-control" type="text" name="company" value="<%=solarProduct.company %>" >
               </div>
             </div>
-            <div class="form-group">
+            <div class="row">
+              <div class=" form-group col-md-6">
+                <input class="form-control" type="number" name="stock" value="<%=solarProduct.stock %>" placeholder="Stock ?">
+              </div>
+              <div class="form-group col-md-6">
                 <select class="form-control" name="category">
-                <option selected ><%=solarProduct.category %></option>
-                <option name="Panel">Panel</option>
-                <option name="">dummy</option>
-                <option name="">dummy</option>
+                  <option selected>
+                    <%=solarProduct.category %>
+                  </option>
+                  <option name="Panel">Panel</option>
+                  <option name="">dummy</option>
+                  <option name="">dummy</option>
                 </select>
+              </div>
             </div>
+            
             <div class="form-group">
-                <textarea form="newP" rows="5" cols="5" class="form-control" name="description" value="<%=solarProduct.description %>"></textarea> 
+                <textarea form="newP" rows="5" cols="5" class="form-control" name="description" value=""><%=solarProduct.description %></textarea> 
             </div>
             <div class="row">
               <div class="form-group col-md-6">

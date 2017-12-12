@@ -4,20 +4,53 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title"> Sign Up </h4>
+        <h4 style="text-align:center" class="modal-title"><b>SignUp</b></h4>
       </div>
       <div class="modal-body ">
         <div class="form-group">
 
-          <form class="form-inline" action="/" method="POST">
+          <form class="" action="/" method="POST" encType="multipart/form-data">
             <div class="form-group">
-              <input class="form-control" type="email" name="username" value="" placeholder="Enter User Name" autofocus>
+              <input class="form-control" type="email" name="username" value="" placeholder=" Email Address" autofocus required>
             </div>
             <div class="form-group">
-              <input class="form-control" type="password" name="password" value="" placeholder=" Enter Password">
+              <input class="form-control" type="password" name="password" value="" placeholder=" Password" required>
+            </div>
+            <div class="row">
+              <div class="form-group col-xs-6">
+                <input class="form-control " type="text" name="name" value="" placeholder="First Name" required>
+              </div>
+              <div class="form-group col-xs-6">
+                <input class="form-control " type="text" name="lname" value="" placeholder="Last Name" required>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-xs-6">
+                <input class="form-control" type="number" name="mobile" value="" placeholder=" Mobile Number" required>
+              </div>
+              <div class="form-group col-xs-6">
+                <input class="form-control" type="date" name="dob" value="" required>
+              </div>
             </div>
             <div class="form-group">
-              <input class="form-control btn btn-default" type="submit" name="submit" value="submit">
+              <input class="form-control" type="text" name="address" value="" placeholder=" Address" required>
+            </div>
+            <div class="row">
+              <div style="color:gray; padding-top:10px;" class="col-md-6 form-group">
+                  Male :  <input class="" type="radio" name="gender" value="male">
+                  Female :  <input class="" type="radio" name="gender" value="male">                
+              </div>
+              <div style="padding-top:10px" class="col-md-3">
+                <p>Select Profile Pic : </p>
+              </div>
+              <div class="form-group col-xs-3">
+                <input class="form-control" type="file" placeholder="Upload" name="img">
+                <input type="hidden" name="img" value="">
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <input class="form-control btn btn-success" type="submit" name="submit" value="submit">
             </div>
           </form>
 

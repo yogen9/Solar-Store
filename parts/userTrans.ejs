@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="row justify-content-center ">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">All Your Orders</h3>
+            </div>
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table">
+                    <tr>
+                        <th>Product Detail</th>
+                        <th>Quantity</th>
+                        <th>Prize</th>
+                        <th>Date Of Order</th>
+                        <th>Status</th>
+                        <th></th>
+                    </tr>
+                    <% currentUserWithTrans.transactions.forEach(function(transaction){ %>
+                        <tr>
+                            <td><a href="/products/<%=transaction.productId %>">Click Here</a></td>
+                            <td><%= transaction.quantity %></td>
+                            <td><%= transaction.prize %></td>
+                            <td><%= transaction.created %></td>
+                            <td><%= transaction.status %></td>
+                            <% if(!(transaction.status == "Done" || transaction.status == "Cancel")){ %>
+                                <form action="/updateStatus?_method=PUT" method="POST">
+                                    <input type="hidden" name="newStatus" value="Cancel">
+                                    <input type="hidden" name="transId" value="<%=transaction._id %>">
+                                    <td><input class="btn btn-danger" type="submit" name="submit" value="Cancel Order"></td>
+                                </form>
+                            <% } %>   
+                        </tr>
+                    <% }) %>
+                    </table>
+                </div>
+            </div>
+            <div class="panel-footer">
+            </div>
+        </div>
+    </div>
+</div>

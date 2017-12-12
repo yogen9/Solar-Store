@@ -1,5 +1,5 @@
 #top {
-    padding: 50px;
+    padding-top: 40px;
 }
 
 #delBt {
@@ -11,7 +11,10 @@
     padding-right: 10px;
 }
 
-.add {
+#detail{
+    font-size:1.5em;
+}
+.add, #buy{
     float: right;
 }
 
@@ -20,21 +23,20 @@
 }
 
 .detail .col-md-5 .img-thumbnail {
-    width: 100%;
+    width: 95%;
+    padding:0;
+    margin : 20px;
 }
 
 .detail .col-md-7 p {
     font-size: 1.5em;
+    width: 100%;
 }
 
 .detail .col-md-7 h1 {
     text-align: center;
     background: #f5f5f5;
     padding: 10px;
-}
-
-.detail .col-md-7 .container-fluid p b {
-    color: olive;
 }
 
 .navbar {
@@ -91,8 +93,9 @@ img {
     padding: 2px 16px;
 }
 
-.img-thumbnail {
+.col-md-5 .img-thumbnail {
     border: none;
+    width: 100%;
 }
 
 .logo {
@@ -144,4 +147,28 @@ img {
 .service {
     padding-bottom: 20px;
     padding-top: 20px;
+}
+
+
+
+
+
+
+.user-row {
+    margin-bottom: 14px;
+}
+
+.user-row:last-child {
+    margin-bottom: 0;
+}
+.toppad {
+    margin-top: 20px;
+}
+
+.panel{
+        box-shadow: 0px 6px 10px   rgba(0,0,0,0.2);
+        transition: 0.3s
+}
+.panel:hover{
+    box-shadow: 0px 10px 20px   rgba(0, 0, 0, 0.2);
 }

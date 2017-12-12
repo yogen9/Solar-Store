@@ -1,5 +1,9 @@
 <% include ../parts/header %>
 <% include ../parts/edit %>
+<% if(currentUser){%>
+    <% include ../parts/buy %>
+<% } %>
+
 
     <div class="detail row" id="top">
         <div class="col-md-5">
@@ -9,18 +13,43 @@
             <div class="container-fluid">
                 <h1><%= solarProduct.title %> 
                 <% if(currentUser){ %>
-                    <form id="delBt" action="/products/<%=solarProduct._id %>?_method=DELETE" method="POST">
-                        <input type="submit" name="Delete" class="btn btn-danger" value="Delete"> 
-                    </form>
-                    <span id="editBt"><button class="btn btn-success" data-toggle="modal" data-target="#editi" type="button">Edit</button></span>         
-                <% } %>
+                    <% if(currentUser.isAdmin){ %>
+                        <form id="delBt" action="/products/<%=solarProduct._id %>?_method=DELETE" method="POST">
+                            <input type="submit" name="Delete" class="btn btn-danger" value="Delete"> 
+                        </form>
+                        <span id="editBt"><button class="btn btn-success" data-toggle="modal" data-target="#editi" type="button">Edit</button></span>         
+                    <% } else { %>
+                        <button id="buy" data-toggle="modal" data-target="#buy" class="btn btn-success" type="button">Buy Now</button>
+                    <% }  %>
+                <% }  %>
             </h1><hr>                
             </div>
-            <div class="container-fluid">
-                <p><b>Company : </b><%=solarProduct.company %></p>            
-                <p><b>Description : </b><%=solarProduct.description %></p>
-                <p><b>Prize : </b><%=solarProduct.prize %> </p>
-                <p><b>Warranty : </b><%=solarProduct.warranty %></p>
+            <div id="detail" class="container-fluid">
+                <table class="table">
+                    <tr>
+                        <th>Company :</th>
+                        <td><%=solarProduct.company %></td>
+                    </tr>
+                    <tr>
+                        <th>Description :</th>
+                        <td><%=solarProduct.description %></td>
+                    </tr>
+                    <tr>
+                        <th>Prize :</th>
+                        <td><%=solarProduct.prize %></td>
+                    </tr>
+                    <tr>
+                        <th>Warranty :</th>
+                        <td><%=solarProduct.warranty %></td>
+                    </tr>
+                </table>
+                <p>
+                    <% if(solarProduct.stock > 0) { %>
+                        <b style="color:blueviolet">In Stock</b>
+                    <% }else{ %>
+                        <b style="color:blueviolet"> Out Of Stock</b>
+                    <% } %>
+                </p>
             </div>
         </div>
     </div>
