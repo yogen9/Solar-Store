@@ -114,23 +114,22 @@ function fileUp(reqBody, reqFiles) {
     else
         console.log(reqFiles);
     
-    if (reqFiles.img)
+    // check if file is uploaded or not
+    if (reqFiles.img){
         reqBody.img = "../images/" + reqFiles.img.name
-    else
+        path = "./public/images/" + reqFiles.img.name;
+        imgfile = reqFiles.img;
+        imgfile.mv(path, function (err) {
+            //setting for server path where uploded file saved
+            if (err)
+                console.log("Error while Upload");
+            else
+                console.log("Successfully uploaded.");
+        });
+    }else{
         reqBody.img = "../images/img_avatar.png"
-
+    }
     console.log(reqBody);
-
-    //setting for server path where uploded file saved
-    path =  "./public/images/" + reqFiles.img.name;
-    imgfile = reqFiles.img;
-    imgfile.mv(path, function (err) {
-        if (err)
-            console.log("Error while Upload");
-        else
-            console.log("Successfully uploaded.");
-    });
-
 }
 //mail settings
 var transporter = nodemailer.createTransport({
