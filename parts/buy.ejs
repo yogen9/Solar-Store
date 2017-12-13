@@ -16,7 +16,7 @@
                         </tr>
                         <tr>
                            <th> Select Quantity</th>
-                           <td><input class="form-control quantity" onchange="prizeCal('<%=solarProduct.prize %>',this)" type="number" name="quantity" value="1" min="1"></td>
+                           <td><input class="form-control quantity" onchange="prizeCal('<%=solarProduct.prize %>',this)" type="number" name="quantity" value="1" min="1" max="<%=solarProduct.stock %>"></td>
                         </tr>
                         <tr>
                             <th>Total Prize</th>

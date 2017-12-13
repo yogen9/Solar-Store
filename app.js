@@ -336,7 +336,7 @@ app.get("/userProfile",isLoggedUser,function (req,res) {  // profile page //Mana
     }  
 })
 
-app.post("/products/:id/buy",isLoggedUser,function(req,res) { // buy item,create transaction
+app.post("/products/:id/buy", isLoggedUser, function (req, res) { // buy item,create transaction, add tran to user and decrement stock
     req.body.prize = req.body.quantity*req.body.prize;
     transaction.create(req.body,function (err,NewTrans) {
         if(err){
@@ -350,7 +350,15 @@ app.post("/products/:id/buy",isLoggedUser,function(req,res) { // buy item,create
                         console.log(err);
                         res.redirect("back");
                     }else{
-                        //sending order notification
+                        //decrement value of stock 
+                        solarProduct.findByIdAndUpdate(req.body.productId,{$inc:{stock : -req.body.quantity}},function (err,stockUpProduct) {
+                            if(err)
+                                console.log(err);
+                            else 
+                                console.log(stockUpProduct);
+                        })
+
+                        //sending order notification on success full entry of transaction in user
                         var OrederNotification = {
                            from: process.env.GU,
                            to: req.user.username,
