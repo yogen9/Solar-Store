@@ -182,8 +182,8 @@ app.post("/", function (req, res) { // for registration
         dob: req.body.dob,
         isAdmin: false,
     });
-    
-    if(req.files.img.name)
+
+    if(req.files.img)
         newUser.img = "../images/" + req.files.img.name
     else 
         newUser.img = "../images/img_avatar.png"
