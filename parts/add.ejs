@@ -18,13 +18,13 @@
               </div>
             </div>
             <div class="row">
-              <div class=" form-group col-md-6"><input class="form-control" type="number" name="stock" value="" placeholder="Stock ?" required></div>
+              <div class=" form-group col-md-6"><input class="form-control" type="number" name="stock" value="" placeholder="Stock ?" required  min="1"></div>
               <div class=" col-md-6 form-group">
-                  <select class="form-control" name="category">
+                  <select class="form-control" name="category" required>
                   <option selected >Select Category</option>
                   <option name="Panel">Panel</option>
-                  <option name="">Roof Top</option>
-                  <option name="">Battery Charger</option>
+                  <option name="Roof Top">Roof Top</option>
+                  <option name="Battery Charger">Battery Charger</option>
                   </select>
               </div>
             </div>
@@ -35,7 +35,7 @@
               <div class="form-group col-md-6">
                 <div class="input-group">
                     <div class="input-group-addon">Ru.</div>
-                        <input class="form-control" type="number" name="prize" value="" placeholder="Tell a prize " required>
+                        <input class="form-control" type="number" name="prize" value="" placeholder="Tell a prize " min="0"  required>
                     <div class="input-group-addon">.00</div>
                 </div>
               </div>
@@ -44,9 +44,9 @@
               </div>
             </div>
             <div class="form-group">
-              <input type="file" name="img"/><br>  
+              <input type="file" name="img" required><br>
+              <input type="hidden" name="img" value="">
             </div>
-            <input type="hidden" name="img" value="">
             <div class="form-group"> 
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div> 

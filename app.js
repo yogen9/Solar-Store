@@ -46,7 +46,10 @@ var userSchema = new mongo.Schema({
     address : String,
     gender : String,
     dob : Date,
-    img : String,
+    img: {
+        type: String,
+        default: "../images/img_avatar.png"
+    },
     isAdmin : Boolean, //this can be done other way by storing user id to product who creates (which is always admin)                  
     transactions: [{    //   and compare id of current user and creater user 
         type : mongo.Schema.Types.ObjectId, // or can be saperate mechanism dashboard type
