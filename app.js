@@ -113,8 +113,12 @@ function fileUp(reqBody, reqFiles) {
         return console.log("No files were uploaded.");
     else
         console.log(reqFiles);
- 
-    reqBody.img = "../images/" + reqFiles.img.name;
+    
+    if (reqFiles.img)
+        reqBody.img = "../images/" + reqFiles.img.name
+    else
+        reqBody.img = "../images/img_avatar.png"
+
     console.log(reqBody);
 
     //setting for server path where uploded file saved
@@ -193,6 +197,7 @@ app.post("/", function (req, res) { // for registration
             console.log("Error while register : " + err);
             return res.render("/");
         }
+        //upload File
         fileUp(req.body,req.files);
         //sending mail : signup
         passport.authenticate("local")(req, res, function () {
