@@ -39,7 +39,7 @@
                             <tr>
                                 <td colspan="2"></td>
                                 <td>
-                                <% if(!(trans.status == "Cancel")){ %>
+                                <% if(!(trans.status == "Cancel" || trans.status == "Done")){ %>
                                     <form action="/updateStatus?_method=PUT" method="POST">
                                         <select name="newStatus" class="text-center form-control">
                                             <option value="<%=trans.status %>" selected><%=trans.status %></option>
@@ -52,7 +52,7 @@
                                     <button type="" class="btn"><%=trans.status%></button> 
                                 <% } %>
                                 </td>
-                                <% if(!(trans.status == "Cancel")){ %>
+                                <% if(!(trans.status == "Cancel" || trans.status == "Done")){ %>
                                     <input type="hidden" name="transId" value="<%=trans._id %>">
                                     <td><input class="btn btn-success" type="submit" name="submit" value="Update Status"></td>
                                 <% } %>
