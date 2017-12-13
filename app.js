@@ -181,8 +181,13 @@ app.post("/", function (req, res) { // for registration
         gender: req.body.gender,
         dob: req.body.dob,
         isAdmin: false,
-        img: "../images/"+ req.files.img.name,
     });
+    
+    if(req.files.img.name)
+        newUser.img = "../images/" + req.files.img.name
+    else 
+        newUser.img = "../images/img_avatar.png"
+
     user.register(newUser, req.body.password, function (err, user) {
         if (err) {
             console.log("Error while register : " + err);
